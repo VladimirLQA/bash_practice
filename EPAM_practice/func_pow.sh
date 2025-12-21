@@ -36,7 +36,7 @@ function pow () {
     fi
 
     local result=$((number ** power))
-    echo "Result: $result"
+        echo "Result: $result"
     return 0
 }
 
