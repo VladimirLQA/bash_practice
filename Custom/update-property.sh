@@ -3,7 +3,7 @@
 set -u
 
 ROOT_PATH="$PWD/cases/"
-IFS=',' read -ra IDS <<< "${1:-}"
+IFS=',' read -ra IDS <<<"${1:-}"
 
 PROPERTY="Automation"
 STATUS="Automated"
@@ -20,6 +20,6 @@ for id in "${IDS[@]+"${IDS[@]}"}"; do
     awk -v prop="$PROPERTY" -v status="$STATUS" -v author="$AUTHOR" '
         $0 ~ prop ".*=.*" { print prop " = \"" status "\""; print "Automated_by = \"" author "\""; next }
         { print }
-    ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+    ' "$file" >"$file.tmp" && mv "$file.tmp" "$file"
 
 done

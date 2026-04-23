@@ -17,8 +17,9 @@ teardown() {
 }
 
 _make_case() {
-    local id="$1" file="$CASES_DIR/$2"
-    cat > "$file" <<EOF
+    local id="$1"
+    local file="$CASES_DIR/$2"
+    cat >"$file" <<EOF
 ID = "$id"
 Title = "Sample test"
 Automation = "Not automated"
